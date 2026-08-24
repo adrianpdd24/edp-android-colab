@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.midtermexam
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -14,7 +14,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MaterialTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    ProfileScreen()
+                    RecipeApp()
                 }
             }
         }
