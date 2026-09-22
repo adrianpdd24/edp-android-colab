@@ -1,14 +1,15 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.devtools.ksp")
 }
 
 android {
-    namespace = "edu.liceo.fieldkit"
+    namespace = "com.liceo.mysocial"
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "edu.liceo.fieldkit"
+        applicationId = "com.liceo.mysocial"
         minSdk = 26
         targetSdk = 36
         versionCode = 1
@@ -42,14 +43,16 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation("androidx.compose.material:material-icons-core")
 
-    // GIVEN (read it, do not change it): Lab 12 libraries
-    val cx = "1.6.1"                                    // CameraX, latest stable
-    implementation("androidx.camera:camera-camera2:$cx")
-    implementation("androidx.camera:camera-lifecycle:$cx")
-    implementation("androidx.camera:camera-compose:$cx")
-    implementation("com.google.android.gms:play-services-location:21.4.0")
+    val room = "2.8.4"
+    implementation("androidx.room:room-runtime:$room")
+    implementation("androidx.room:room-ktx:$room")
+    ksp("androidx.room:room-compiler:$room")
+
+    implementation("androidx.datastore:datastore-preferences:1.2.1")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.10.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.10.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
