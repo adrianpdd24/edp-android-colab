@@ -4,17 +4,17 @@ plugins {
 }
 
 android {
-    namespace = "com.example.myapplication"
+    namespace = "edu.liceo.fieldkit"
     compileSdk {
-        version = release(36) {
+        version = release(37) {
             minorApiLevel = 1
         }
     }
 
     defaultConfig {
-        applicationId = "com.example.myapplication"
-        minSdk = 36
-        targetSdk = 36
+        applicationId = "edu.liceo.fieldkit"
+        minSdk = 37
+        targetSdk = 37
         versionCode = 1
         versionName = "1.0"
 
@@ -46,6 +46,13 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    val cx = "1.6.2"
+    implementation("androidx.camera:camera-camera2:$cx")
+    implementation("androidx.camera:camera-lifecycle:$cx")
+    implementation("androidx.camera:camera-compose:$cx")
+    implementation("com.google.android.gms:play-services-location:21.4.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.11.0")
+    implementation("androidx.compose.material:material-icons-extended")
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
